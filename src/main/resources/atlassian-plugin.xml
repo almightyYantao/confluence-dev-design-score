@@ -1,0 +1,48 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="DevDesignScoreMacro"/>
+
+    <!-- add our web resources -->
+    <web-resource key="DevDesignScoreMacro-resources" name="DevDesignScoreMacro Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+
+        <resource type="download" name="DevDesignScoreMacro.css" location="/css/DevDesignScoreMacro.css"/>
+        <resource type="download" name="DevDesignScoreMacro.js" location="/js/DevDesignScoreMacro.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>DevDesignScoreMacro</context>
+    </web-resource>
+
+
+    <xhtml-macro name="dev-design-score" class="com.qunhe.it.macro.DevDesignScoreServiceMacro"
+                 key='dev-design-score-macro'
+                 hasBody='true' bodyType='raw' outputType='html'
+    >
+        <description key="dev-design.macro.desc"/>
+        <category name="confluence-content"/>
+        <parameters>
+        </parameters>
+        <property-panel>
+            <button id="0" label="0%"/>
+            <button id="10" label="10%"/>
+            <button id="20" label="20%"/>
+            <button id="30" label="30%"/>
+            <button id="40" label="40%"/>
+            <button id="50" label="50%"/>
+            <button id="60" label="60%"/>
+            <button id="70" label="70%"/>
+            <button id="80" label="80%"/>
+            <button id="90" label="90%"/>
+            <button id="100" label="100%"/>
+        </property-panel>
+    </xhtml-macro>
+
+</atlassian-plugin>
